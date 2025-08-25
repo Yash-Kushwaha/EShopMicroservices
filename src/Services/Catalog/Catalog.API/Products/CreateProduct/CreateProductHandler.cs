@@ -11,7 +11,7 @@ internal class CreateProductCommandHandler : ICommandHandler<CreateProductComman
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var newProductId = new Product()
+        var product = new Product()
         {
             Name = command.Name,
             Category = command.Category,

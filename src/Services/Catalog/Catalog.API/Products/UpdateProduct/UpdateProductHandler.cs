@@ -23,7 +23,7 @@ namespace Catalog.API.Products.UpdateProduct
         {
             logger.LogInformation("UpdateProductCommandHandler.Handle Called with {@Command}", command);
 
-            var product = await session.LoadAsync<Product>(command.Id, cancellationToken) ?? throw new ProductNotFoundException();
+            var product = await session.LoadAsync<Product>(command.Id, cancellationToken) ?? throw new ProductNotFoundException(command.Id);
 
             product.Name = command.Name;
             product.Category = command.Category;
